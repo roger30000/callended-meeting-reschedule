@@ -1,0 +1,162 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Meeting Status</title>
+
+<style>
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: "Segoe UI", Arial, sans-serif;
+  background-color: #f7f7fa;
+  background-image: radial-gradient(#e8e8ee 0.6px, transparent 0.6px);
+  background-size: 6px 6px;
+  color: #545bc4;
+}
+
+.screen {
+  width: 100%;
+  min-height: 100vh;
+  padding: 25px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+}
+
+.teams-logo {
+  width: 230px;
+  height: 220px;
+  margin-bottom: 24px;
+}
+
+.status {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 25px;
+  margin-bottom: 30px;
+  font-size: clamp(28px, 4vw, 42px);
+  font-weight: 300;
+}
+
+.wifi {
+  width: 90px;
+  height: 75px;
+}
+
+.ended {
+  width: 297px;
+  max-width: 90%;
+  padding: 16px 10px;
+  background: #5b5bc7;
+  color: white;
+  font-size: 20px;
+  font-weight: 700;
+  margin-bottom: 32px;
+}
+
+.notice {
+  margin: 0;
+  color: #4f57c1;
+  font-size: clamp(16px, 2vw, 22px);
+  font-weight: 700;
+}
+
+@media (max-width: 500px) {
+  .teams-logo {
+    width: 170px;
+    height: 165px;
+  }
+
+  .status {
+    gap: 12px;
+  }
+
+  .wifi {
+    width: 60px;
+  }
+
+  .ended {
+    font-size: 17px;
+  }
+}
+</style>
+</head>
+
+<body>
+<main class="screen">
+
+  <!-- Teams-style logo -->
+  <svg class="teams-logo" viewBox="0 0 230 220"
+       xmlns="http://www.w3.org/2000/svg">
+    <defs>
+      <linearGradient id="tile" x1="0" y1="0" x2="1" y2="1">
+        <stop offset="0%" stop-color="#626bd4"/>
+        <stop offset="100%" stop-color="#3446a8"/>
+      </linearGradient>
+    </defs>
+
+    <circle cx="136" cy="35" r="33" fill="#7884e9"/>
+    <circle cx="205" cy="45" r="23" fill="#4d58c5"/>
+
+    <path d="M119 76h54v65c0 31-22 51-49 51
+             -24 0-44-17-44-42V96c0-11 8-20 19-20z"
+          fill="#7884e9"/>
+
+    <path d="M170 77h47c9 0 16 7 16 16v46
+             c0 19-14 33-32 33h-1c-17 0-30-13-30-30z"
+          fill="#4c59c8"/>
+
+    <rect x="25" y="55" width="111" height="111"
+          rx="10" fill="#26358f" opacity=".18"/>
+
+    <rect x="18" y="48" width="111" height="111"
+          rx="10" fill="url(#tile)"/>
+
+    <text x="73.5" y="129" text-anchor="middle"
+          font-family="Segoe UI, Arial, sans-serif"
+          font-size="83" font-weight="300" fill="white">T</text>
+  </svg>
+
+  <!-- Connection status -->
+  <div class="status">
+    <svg class="wifi" viewBox="0 0 94 78"
+         xmlns="http://www.w3.org/2000/svg">
+      <g fill="none" stroke="#4e58c7"
+         stroke-width="6" stroke-linecap="round"
+         stroke-linejoin="round">
+        <path d="M13 22C26 11 39 7 51 7"/>
+        <path d="M22 38C30 31 36 27 43 26"/>
+        <path d="M25 61L76 12"/>
+        <path d="M51 28l14 4"/>
+        <path d="M42 43l13 4"/>
+        <path d="M34 57l12 4"/>
+      </g>
+      <circle cx="55" cy="68" r="4.5" fill="#4e58c7"/>
+    </svg>
+
+    <span>Connecting...</span>
+  </div>
+
+  <!-- Call ended message -->
+  <div class="ended">Call ended 00:00</div>
+
+  <p class="notice">
+    This meeting will be reschedule by the organizer.
+  </p>
+
+</main>
+</body>
+</html>
